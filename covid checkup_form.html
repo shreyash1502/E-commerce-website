@@ -1,0 +1,210 @@
+<html>
+	<head>
+		<title>Form</title>
+		<link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<style type="text/css">
+			@media screen and (min-width:701px){
+			.form{
+			padding:0 5px 5px 10px;
+			width:850px;
+			border:5px solid black;
+			background: #9fd7fb;
+			}
+			}
+			@media screen and (max-width:700px){
+			.form{
+			background: #9fd7fb;
+			padding:0 5px 5px 10px;
+			width:75vw;
+			border:5px solid black;
+			}
+			}
+			@media screen and (max-width:700px){
+			.div2{
+			margin-bottom:10vh;
+			}
+			.down{
+			position:relative;
+			left:-60%;
+			top:10vh;
+			}
+			}
+			.right{
+			margin-right:15vw;
+			float:right;
+			}
+			h2{
+			text-align:center;
+			text-decoration:underline;
+			}
+			h2:hover{
+			cursor:default;
+			}
+			.inputs{
+				display:flex;			
+			}
+			.options{
+			border:2px solid black;
+			color:white;
+			text-align:center;
+			width:120px;
+			background-color:black;
+			margin-right:8px;
+			border-radius:25px;
+			height:38px;
+			vertical-align:middle;
+			margin-top:-2px;
+			padding:5px 0;
+			font-size:20px;
+			}
+			.options:hover{
+			background-color:#03DAC5;
+			color:black;
+			cursor:pointer;
+			}
+			.option::selection{
+			background-color:#03DAC5;
+			color:black;
+			}
+			.radio{
+			display:flex;
+			}
+			.yes{
+			margin-left:30%;
+			margin-right:110px;
+			}
+			input[type="radio"]{
+				background:black;
+				color:white;
+			}
+			hr{
+			margin:15px 0;
+			}
+			.extend{
+			text-align:center;
+			width:230px;
+			}
+			body{
+			font-family: 'Alata', sans-serif;
+			}
+			.extend1{
+			width:155px;
+			}
+			.size{
+			font-size:18px;
+			}
+			input[type="button"]:focus{
+			outline:none;
+			}
+			input[type="submit"]:focus{
+			outline:none;
+			}			
+			.none{
+			background:#03DAC5;
+			color:black;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<form>
+		<div class="form">
+			<h2>Self check-up form</h2>
+			<p class="size">Name :<input class="right" type="text" name="user_name" required pattern ="^[a-zA-Z]+(\s+[a-zA-Z]+)+$" title="Please enter full name e.g. John Smith"></p>
+			<p class="size">Age(in years) :<input required class="right" type="number" min="10"></p>
+			<hr>
+			<p class="size">Are you experiencing any of the following symptoms ?</p>
+				<div class="inputs">
+					<input type="button"class="options div1" id="1" onclick="color()" value="Cough">
+					<input type="button" class="options div1" id="2" onclick="color()" value="Fever">
+					<input type="button" class="options extend div1" id="3" onclick="color()" value="Difficulty in Breathing">
+					<input type="button" class="options div1 none" id="4" onclick="color()" value="None">
+					</div>
+			<hr>	
+			<p class="size">Have you ever had any of the following:</p>
+				<div class="inputs">
+					<input type="button" class="options div2" id="5" onclick="color()" value="Diabetes">
+					<input type="button" id="6" class="options div2 extend1" onclick="color()" value="Hypertension">
+					<input type="button" id="7" class="options div2 extend1" onclick="color()" value="Lung Disease">
+					<input id="8" class="options div2 extend1 down" onclick="color()" type="button" value="Heart Diasease">
+					<input type="button" id="9" class="options div2 down none" onclick="color()" value="None">
+				</div>
+			<hr>	
+			<p class="size">Have you travelled anywhere internationally in the last 14 days?</p>
+				<div class="radio">
+					<span class="yes"><input class="travel" type="radio" name="traveller" required>YES</span>
+					<input required class="travel" type="radio" name="traveller">NO
+				</div>
+			<hr>	
+			<p class="size">Which of the following applies to you?</p>
+				<div style="display:flex">
+				<input required type="radio" name="check">I recently interacted or lived with someone who has tested positive for COVID-19
+				<input required type="radio" name="check">I am a healthcare worker and I examined a COVID-19 confirmed case without protective gear.
+				<input required type="radio" name="check">Not Applicable
+				</div>
+				<hr>
+				<div style="display:flex;margin-left:25%;" class="buttons">
+				<input class="options" type="submit"style="margin-right:20%;">
+				<input class="options" type="button" id="reset" value="Reset" onclick="window.location.reload();">
+				</div>
+		</div>
+		</form>
+		<script type="text/javascript">
+			$("#1").click(function(){
+				$("#1").css("backgroundColor","#03DAC5");
+				$("#1").css("color","black");
+				$("#4").css("backgroundColor","black");
+				$("#4").css("color","white");
+			});
+			$("#2").click(function(){
+				$("#2").css("backgroundColor","#03DAC5");
+				$("#2").css("color","black");
+				$("#4").css("backgroundColor","black");
+				$("#4").css("color","white");
+			});
+			$("#3").click(function(){
+				$("#3").css("backgroundColor","#03DAC5");
+				$("#3").css("color","black");
+				$("#4").css("backgroundColor","black");
+				$("#4").css("color","white");
+			});
+			$("#4").click(function(){
+				$(".div1").css("backgroundColor","black");
+				$(".div1").css("color","white");
+				$("#4").css("backgroundColor","#03DAC5");
+				$("#4").css("color","black");	
+			});
+			$("#5").click(function(){
+				$("#5").css("backgroundColor","#03DAC5");
+				$("#5").css("color","black");
+				$("#9").css("backgroundColor","black");
+				$("#9").css("color","white");
+			});
+			$("#6").click(function(){
+				$("#6").css("backgroundColor","#03DAC5");
+				$("#6").css("color","black");
+				$("#9").css("backgroundColor","black");
+				$("#9").css("color","white");
+			});
+			$("#7").click(function(){
+				$("#7").css("backgroundColor","#03DAC5");
+				$("#7").css("color","black");
+				$("#9").css("backgroundColor","black");
+				$("#9").css("color","white");
+			});
+			$("#8").click(function(){
+				$("#8").css("backgroundColor","#03DAC5");
+				$("#8").css("color","black");
+				$("#9").css("backgroundColor","black");
+				$("#9").css("color","white");
+			});
+			$("#9").click(function(){
+				$(".div2").css("backgroundColor","black");
+				$(".div2").css("color","white");
+				$("#9").css("backgroundColor","#03DAC5");
+				$("#9").css("color","black");
+			});
+		</script>
+	</body>
+</html>
